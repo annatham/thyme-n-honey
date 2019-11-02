@@ -2,14 +2,14 @@
   "development": {
     "username": "teamuser",
     "password": "P@ssw0rd",
-    "database": "exampledb",
+    "database": "projectdb",
     "host": "localhost",
     "dialect": "mysql"
   },
   "test": {
     "username": "teamuser",
     "password": "P@ssw0rd",
-    "database": "testdb",
+    "database": "projectdb",
     "host": "localhost",
     "dialect": "mysql",
     "logging": false
