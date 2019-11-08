@@ -1,0 +1,18 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+.brand-logo {
+  margin-left: 5%;
+  font-family: 'Knewave';
+}
+
+nav {
+  background-color: #424242;
+  margin-bottom: 5%;
+}
+
+.collapsible-header {
+  background-color: #424242;
+  color: #ffffff;
+}
