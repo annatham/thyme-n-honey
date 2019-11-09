@@ -7,18 +7,37 @@
 
 // Requiring our Todo model
 var db = require("../models");
-var db = require(axios);
+var axios = require("axios");
+
 
 // Routes
 // =============================================================
 module.exports = function(app) {
 
   // GET route for getting all of the posts
+  // app.get("/api/posts/", function(req, res) {
+  //   db.Post.findAll({})
+  //     .then(function(dbPost) {
+  //       res.json(dbPost);
+  //     });
+  // });
+
   app.get("/api/posts/", function(req, res) {
-    //db.Post.findAll({})
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    // console.log(req.body);
+    axios.get('https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=d1c503b2daca47d48c8b558b879203e05')
+    .then(function (response) {
+      // handle success
+      console.log(response);
+      res.json(response.toJSON());
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+    console.log("hi");
   });
 
   // Get route for returning posts of a specific category
