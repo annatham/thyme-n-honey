@@ -1,5 +1,4 @@
-DROP DATABASE IF EXISTS exampledb;
-CREATE DATABASE exampledb;
-
-DROP DATABASE IF EXISTS testdb;
-CREATE DATABASE testdb;
+-- Drops the thymehoney if it exists currently --
+DROP DATABASE IF EXISTS thymehoney;
+-- Creates the "thymehoney" database --
+CREATE DATABASE thymehoney;
