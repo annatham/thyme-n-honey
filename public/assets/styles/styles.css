@@ -10,12 +10,20 @@
 }
 
 nav {
-  background-color: #009688;
   margin-top: 3%;
   margin-bottom: 3%;
+  background-color: #e57373;
 }
 
 .collapsible-header {
-  background-color: #4db6ac;
+  background-color: #e57373;
   color: #ffffff;
+}
+
+body {
+  background-image: url("../images/doodles.png");
+}
+
+.container {
+  background-color: #ffffff;
 }
