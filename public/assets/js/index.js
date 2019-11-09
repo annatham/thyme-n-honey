@@ -94,11 +94,15 @@ var handleDeleteBtnClick = function() {
   });
 };
 
-// ***initialize collapsible***
+// ***initialize collapsible and side nav***
 
 $(document).ready(function(){
   $('.collapsible.popout').collapsible();
+
+  $('.sidenav').sidenav();
+  
 });
+  
 
 // Add event listeners to the submit and delete buttons
 $submitBtn.on("click", handleFormSubmit);

@@ -17,13 +17,19 @@ module.exports = function(app) {
     res.sendFile(path.join(__dirname, "../public/blog.html"));
   });
 
-  app.get("/cms", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/cms.html"));
+  app.get("/about", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/about.html"));
   });
 
   // blog route loads blog.html
-  app.get("/blog", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/blog.html"));
+  app.get("/home", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/home.html"));
+  });
+
+};
+  // blog route loads blog.html
+  app.get("/recipe", function(req, res) {
+    res.sendFile(path.join(__dirname, "../public/recipe.html"));
   });
 
 };
