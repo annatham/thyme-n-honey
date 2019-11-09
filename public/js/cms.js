@@ -6,7 +6,7 @@ $(document).ready(function() {
   var updating = false;
 
   // If we have this section in our url, we pull out the post id from the url
-  // In localhost:8080/cms?post_id=1, postId is 1
+  // In localhost:3306/cms?post_id=1, postId is 1
   if (url.indexOf("?post_id=") !== -1) {
     postId = url.split("=")[1];
     getPostData(postId);
