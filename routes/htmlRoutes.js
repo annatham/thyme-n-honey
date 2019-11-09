@@ -28,14 +28,10 @@ module.exports = function(app) {
   });
 
 };
-  // blog route loads blog.html
-  app.get("/recipe", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/recipe.html"));
-  });
+  // // blog route loads blog.html
+  // app.get("/recipe", function(req, res) {
+  //   res.sendFile(path.join(__dirname, "../public/recipe.html"));
+  // });
 
-  // blog route loads blog.html
-  app.get("/recipe", function(req, res) {
-    res.sendFile(path.join(__dirname, "../public/recipe.html"));
-  });
 
 
