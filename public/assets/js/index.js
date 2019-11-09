@@ -100,6 +100,8 @@ $(document).ready(function(){
   $('.collapsible.popout').collapsible();
 
   $('.sidenav').sidenav();
+
+  M.updateTextFields();
   
 });
   
