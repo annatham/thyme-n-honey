@@ -1,0 +1,37 @@
+.list-group-item {
+  line-height: 2.5;
+}
+
+.brand-logo {
+  margin-left: 5%;
+  /* font-family: 'Averia Serif Libra'; */
+  font-family: 'Permanent Marker';
+  /* font-family: 'Knewave'; */
+}
+
+nav {
+  margin-top: 3%;
+  margin-bottom: 3%;
+  background-color: #e57373;
+  opacity: 90%;
+  padding: 3%, 0 , 3%, 0;
+}
+
+.collapsible-header {
+  background-color: #e57373;
+  color: #ffffff;
+  opacity: 90%;
+
+}
+
+.collapsible-body{
+  opacity: 90%;
+}
+
+body {
+  background-image: url("../images/doodles.png");
+}
+
+.container {
+  width: 80%;
+}
