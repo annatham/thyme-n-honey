@@ -1,4 +1,5 @@
 $(document).ready(function() {
+  console.log("hello");
   // Gets an optional query string from our url (i.e. ?post_id=23)
   var url = window.location.search;
   var postId;
