@@ -13,7 +13,6 @@ $(document).ready(function() {
   }
 
   // Getting jQuery references to the post body, title, form, and category select
-  var bodyInput = $("#body");
   var titleInput = $("#title");
   var cmsForm = $("#cms");
   var postCategorySelect = $("#category");
@@ -40,8 +39,7 @@ $(document).ready(function() {
     if (updating) {
       newPost.id = postId;
       updatePost(newPost);
-    }
-    else {
+    } else {
       submitPost(newPost);
     }
   });
@@ -74,9 +72,8 @@ $(document).ready(function() {
       method: "PUT",
       url: "/api/posts",
       data: post
-    })
-      .then(function() {
-        window.location.href = "/blog";
-      });
+    }).then(function() {
+      window.location.href = "/blog";
+    });
   }
 });
