@@ -46,3 +46,6 @@ button {
   float: right;
 }
 
+#search-btn {
+  float: left;
+}
