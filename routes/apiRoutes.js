@@ -22,13 +22,13 @@ module.exports = function(app) {
   //     });
   // });
 
-  app.get("/api/posts/", function(req, res) {
+  app.get("/api/posts/random", function(req, res) {
     // console.log(req.body);
-    axios.get('https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=d1c503b2daca47d48c8b558b879203e05')
+    axios.get('https://api.spoonacular.com/recipes/random?&apiKey=d1c503b2daca47d48c8b558b879203e0')
     .then(function (response) {
       // handle success
-      console.log(response);
-      res.json(response.toJSON());
+      console.log("test", response);
+      res.json(response.data);
     })
     .catch(function (error) {
       // handle error
@@ -37,7 +37,6 @@ module.exports = function(app) {
     .finally(function () {
       // always executed
     });
-    console.log("hi");
   });
 
   // Get route for returning posts of a specific category
