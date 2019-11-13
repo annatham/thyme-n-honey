@@ -2,6 +2,7 @@ $(document).ready(function() {
   // blogContainer holds all of our posts
   var blogContainer = $(".blog-container");
   var postCategorySelect = $("#category");
+
   // Click events for the edit and delete buttons
   $(document).on("click", "button.delete", handlePostDelete);
   $(document).on("click", "button.edit", handlePostEdit);
@@ -19,8 +20,7 @@ $(document).ready(function() {
       posts = data;
       if (!posts || !posts.length) {
         displayEmpty();
-      }
-      else {
+      } else {
         initializeRows();
       }
     });
@@ -31,10 +31,9 @@ $(document).ready(function() {
     $.ajax({
       method: "DELETE",
       url: "/api/posts/" + id
-    })
-      .then(function() {
-        getPosts(postCategorySelect.val());
-      });
+    }).then(function() {
+      getPosts(postCategorySelect.val());
+    });
   }
 
   // Getting the initial list of posts
@@ -69,8 +68,7 @@ $(document).ready(function() {
     newPostCategory.css({
       float: "right",
       "font-weight": "700",
-      "margin-top":
-      "-15px"
+      "margin-top": "-15px"
     });
     var newPostCardBody = $("<div>");
     newPostCardBody.addClass("card-body");
@@ -117,7 +115,9 @@ $(document).ready(function() {
     blogContainer.empty();
     var messageH2 = $("<h2>");
     messageH2.css({ "text-align": "center", "margin-top": "50px" });
-    messageH2.html("No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post.");
+    messageH2.html(
+      "No posts yet for this category, navigate <a href='/cms'>here</a> in order to create a new post."
+    );
     blogContainer.append(messageH2);
   }
 
@@ -126,5 +126,4 @@ $(document).ready(function() {
     var newPostCategory = $(this).val();
     getPosts(newPostCategory);
   }
-
 });

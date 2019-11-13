@@ -8,12 +8,11 @@
 // Requiring our Todo model
 var db = require("../models");
 var axios = require("axios");
-
-
+var apiKey = d1c503b2daca47d48c8b558b879203e05;
+var UserInput = $("#search");
 // Routes
 // =============================================================
 module.exports = function(app) {
-
   // GET route for getting all of the posts
   // app.get("/api/posts/", function(req, res) {
   //   db.Post.findAll({})
@@ -24,19 +23,25 @@ module.exports = function(app) {
 
   app.get("/api/posts/", function(req, res) {
     // console.log(req.body);
-    axios.get('https://api.spoonacular.com/recipes/random?number=1&tags=vegetarian,dessert&apiKey=d1c503b2daca47d48c8b558b879203e05')
-    .then(function (response) {
-      // handle success
-      console.log(response);
-      res.json(response.toJSON());
-    })
-    .catch(function (error) {
-      // handle error
-      console.log(error);
-    })
-    .finally(function () {
-      // always executed
-    });
+    axios
+      .get(
+        "https://api.spoonacular.com/recipes/search?query=" +
+          UserInput +
+          "number=10&+apiKey=" +
+          apiKey
+      )
+      .then(function(response) {
+        // handle success
+        console.log(response);
+        res.json(response.toJSON());
+      })
+      .catch(function(error) {
+        // handle error
+        console.log(error);
+      })
+      .finally(function() {
+        // always executed
+      });
     console.log("hi");
   });
 
@@ -46,10 +51,9 @@ module.exports = function(app) {
       where: {
         category: req.params.category
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // Get route for retrieving a single post
@@ -58,10 +62,9 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // POST route for saving a new post
@@ -71,10 +74,9 @@ module.exports = function(app) {
       title: req.body.title,
       body: req.body.body,
       category: req.body.category
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // DELETE route for deleting posts
@@ -83,22 +85,19 @@ module.exports = function(app) {
       where: {
         id: req.params.id
       }
-    })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 
   // PUT route for updating posts
   app.put("/api/posts", function(req, res) {
-    db.Post.update(req.body,
-      {
-        where: {
-          id: req.body.id
-        }
-      })
-      .then(function(dbPost) {
-        res.json(dbPost);
-      });
+    db.Post.update(req.body, {
+      where: {
+        id: req.body.id
+      }
+    }).then(function(dbPost) {
+      res.json(dbPost);
+    });
   });
 };
