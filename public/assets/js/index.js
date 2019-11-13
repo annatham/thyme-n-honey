@@ -103,6 +103,35 @@ $(document).ready(function(){
 
   M.updateTextFields();
   
+
+  $("#search-btn").click(function(event){
+    event.preventDefault();
+
+    $.get( "http://localhost:8080/api/posts/random", function( data ) {
+      // console.log(data);
+
+      var recipeRawData = data.recipes[0];
+
+      var recipe = {
+        title: recipeRawData.title,
+        image: recipeRawData.image,
+        ingredients: recipeRawData.extendedIngredients.map(i=> i.original)
+
+      }
+
+      console.log(recipe);
+
+      $("#recipe-title").html(recipe.title);
+      $("#recipe-image").html('<img src="'+ recipe.image + '"/>');
+      $("#ingredients").html(recipe.ingredients.join("<br/>"));
+
+      // $( "#results" ).html(data.recipes[0].aggregateLikes);
+      alert( "Load was performed." );
+
+
+    });  })
+
+
 });
   
 
