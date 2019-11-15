@@ -46,6 +46,7 @@ button {
   float: right;
 }
 
-#search-btn {
+#search-btn, #random-btn {
   float: left;
+  margin-left: 0.5%;
 }
