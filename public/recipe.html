@@ -59,6 +59,8 @@
                     <i class="material-icons">close</i>
                     <button class="btn waves-effect waves-light red lighten-3 btn-small" id="search-btn" type="submit" name="action">Search
                     </button>
+                    <button class="btn waves-effect waves-light red lighten-3 btn-small" type="submit" id="random-btn" name="action">Random</button>
+
 
                 </div>
             
@@ -73,7 +75,10 @@
           <div class="container">
 
           <div class="row">        
-            <h6>recipe content here</h6>
+
+                <div class="container" id="recipe-title"></div>
+                <div class="container" id="recipe-image"></div>
+                <!-- <div class="container" id="ingredients"> </div> -->
 
             <!-- rate recipe - need on click function -->
             
@@ -90,12 +95,14 @@
             <div class="collapsible-header"><i class="material-icons">add</i>Ingredients</div>
             <div class="collapsible-body">
                 <a class="btn-floating btn-large waves-effect waves-light grey lighten-1 btn-small"><i class="material-icons">add</i></a>
-                <span>ingredients</span>
+                <div class="container" id="ingredients">
             </div>
             </li>
             <li>
             <div class="collapsible-header"><i class="material-icons">access_time</i>Instructions</div>
-            <div class="collapsible-body"><span>Lorem ipsum dolor sit amet.</span></div>
+            <div class="collapsible-body">                
+                <div class="container" id="instructions"></div>
+            </div>
             </li>
             <li>
             <div class="collapsible-header"><i class="material-icons">chat_bubble_outline</i>Comments</div>

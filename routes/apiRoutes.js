@@ -39,6 +39,23 @@ module.exports = function(app) {
     });
   });
 
+  app.get("/api/posts/search", function(req, res) {
+    // console.log(req.body);
+    axios.get('https://api.spoonacular.com/recipes/search?&apiKey=d1c503b2daca47d48c8b558b879203e0')
+    .then(function (response) {
+      // handle success
+      console.log("test", response);
+      res.json(response.data);
+    })
+    .catch(function (error) {
+      // handle error
+      console.log(error);
+    })
+    .finally(function () {
+      // always executed
+    });
+  });
+
   // Get route for returning posts of a specific category
   app.get("/api/posts/category/:category", function(req, res) {
     db.Post.findAll({
