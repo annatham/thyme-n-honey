@@ -57,14 +57,12 @@ module.exports = function(app) {
   });
 
   // Get route for returning posts of a specific category
-  app.get("/api/posts/category/:category", function(req, res) {
-    db.Post.findAll({
-      where: {
-        category: req.params.category
-      }
+  app.get("/api/favorite", function(req, res) {
+    db.Favorite.findAll({
+
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbFavorite) {
+        res.json(dbFavorite);
       });
   });
 
@@ -81,15 +79,16 @@ module.exports = function(app) {
   });
 
   // POST route for saving a new post
-  app.post("/api/posts", function(req, res) {
+  app.post("/api/favorite", function(req, res) {
     console.log(req.body);
-    db.Post.create({
+    db.Favorite.create({
       title: req.body.title,
-      body: req.body.body,
-      category: req.body.category
+      image: req.body.image,
+      ingredients: req.body.ingredients,
+      instructions: req.body.instructions
     })
-      .then(function(dbPost) {
-        res.json(dbPost);
+      .then(function(dbFavorite) {
+        res.json(dbFavorite);
       });
   });
 

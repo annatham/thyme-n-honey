@@ -103,6 +103,8 @@ $(document).ready(function(){
 
   M.updateTextFields();
   
+  var recipe;
+
 
   $("#random-btn").click(function(event){
     event.preventDefault();
@@ -112,20 +114,19 @@ $(document).ready(function(){
 
       var recipeRawData = data.recipes[0];
 
-      var recipe = {
+        recipe = {
         title: recipeRawData.title,
         image: recipeRawData.image,
-        ingredients: recipeRawData.extendedIngredients.map(i=> i.original),
-        instructions: recipeRawData.analyzedInstructions[0].steps.map(i=> i.original)
+        ingredients: recipeRawData.extendedIngredients.map(i=> "<a class='btn-floating waves-effect waves-light grey lighten-1 btn-small'><i class='material-icons'>add</i></a>" + i.original),
+        instructions: recipeRawData.analyzedInstructions[0].steps.map(step => step.number + "." + step.step)
         // instructions doesn't pull
-
       }
 
-      console.log(recipe);
+      console.log(data.recipes[0].instructions);
 
       $("#recipe-title").html(recipe.title);
       $("#recipe-image").html('<img src="'+ recipe.image + '"/>');
-      $("#ingredients").html(recipe.ingredients.join("<br/>"));
+      $("#ingredients").html(recipe.ingredients.join("<br/><br/>"));
       $("#instructions").html(recipe.instructions.join("<br/>"));
 
       // $( "#results" ).html(data.recipes[0].aggregateLikes);
@@ -136,37 +137,46 @@ $(document).ready(function(){
   
   })
 
-  $("#search-btn").click(function(event){
-    event.preventDefault();
-
-    $.get("http://localhost:8080/api/posts/search", function( data ) {
-      console.log(data);
-
-      var recipeRawData = data.recipes[0];
-
-      var recipe = {
-        title: recipeRawData.title,
-        image: recipeRawData.image,
-        ingredients: recipeRawData.extendedIngredients.map(i=> i.original),
-        instructions: recipeRawData.analyzedInstructions[0].steps.map(i=> i.original)
-        // instructions doesn't pull
-
-      }
-
-      console.log(recipe);
-
-      $("#recipe-title").html(recipe.title);
-      $("#recipe-image").html('<img src="'+ recipe.image + '"/>');
-      $("#ingredients").html(recipe.ingredients.join("<br/>"));
-      $("#instructions").html(recipe.instructions.join("<br/>"));
-
-      // $( "#results" ).html(data.recipes[0].aggregateLikes);
-      // alert( "Load was performed." );
-
-
-    });  
-  
+  $("#favorite").click(function(event){
+    console.log("hello world");
+    
+    $.post("/api/favorite", recipe )
+    .then(function(res){
+      console.log(res)
+    })
   })
+
+  // $("#search-btn").click(function(event){
+  //   event.preventDefault();
+
+  //   $.get("http://localhost:8080/api/posts/search", function( data ) {
+  //     console.log(data.recipes[0].instructions);
+
+  //     var recipeRawData = data.recipes[0];
+
+  //     var recipe = {
+  //       title: recipeRawData.title,
+  //       image: recipeRawData.image,
+  //       ingredients: recipeRawData.extendedIngredients.map(i=> i.original),
+  //       instructions: recipeRawData.analyzedInstructions[0].steps.map(i=> i.original)
+  //       // instructions doesn't pull
+
+  //     }
+
+  //     console.log(recipe);
+
+  //     $("#recipe-title").html(recipe.title);
+  //     $("#recipe-image").html('<img src="'+ recipe.image + '"/>');
+  //     $("#ingredients").html(recipe.ingredients.join("<br/>"));
+  //     $("#instructions").html(recipe.instructions.join("<br/>"));
+
+  //     // $( "#results" ).html(data.recipes[0].aggregateLikes);
+  //     // alert( "Load was performed." );
+
+
+  //   });  
+  
+  // })
 
 
 });
